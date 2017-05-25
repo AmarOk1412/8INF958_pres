@@ -14,9 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url
-from blog_tests import views
+from leakntest import views
 
 urlpatterns = [
-    url(r'^$', views.home),
-    url(r'^addition/(?P<nombre1>\d+)/(?P<nombre2>\d+)/$', views.addition)
+    url(r'^$', views.home, name='home'),
+    url(r'^search/(?P<entry>\w+)/$', views.search, name='search'),
+    # url(r'^addition/(?P<nombre1>\d+)/(?P<nombre2>\d+)/$', views.addition),
+
+
 ]
