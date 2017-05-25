@@ -1,4 +1,4 @@
-- model: Entry
+- model: leakntest.entry
   pk: 1
   fields:
     name: mario
@@ -6,3 +6,75 @@
     password: x_IamTheBest_x666
     hashword: de2f15d014d40b93578d255e6221fd60
     website: www.facebook.com
+- model: leakntest.entry
+  pk: 2
+  fields:
+    name: mario
+    mail: mario@gmail.com
+    password: x_IamTheBest_x666
+    hashword: de2f15d014d40b93578d255e6221fd60
+    website: www.twitter.com
+- model: leakntest.entry
+  pk: 3
+  fields:
+    name: mario
+    mail: mario@gmail.com
+    password: x_IamTheBest_x666
+    hashword: de2f15d014d40b93578d255e6221fd60
+    website: www.amazon.com
+- model: leakntest.entry
+  pk: 4
+  fields:
+    name: mario
+    mail: mario@gmail.com
+    password: IhateLuigi
+    hashword: cf8b39a97771ade35fae64a2fc53893b
+    website: www.twitter.com
+- model: leakntest.entry
+  pk: 5
+  fields:
+    name: LuigiTheStalker
+    mail: mario@gmail.com
+    password: password
+    hashword: 5f4dcc3b5aa765d61d8327deb882cf99
+    website: www.facebook.com
+- model: leakntest.entry
+  pk: 6
+  fields:
+    name: Bowser
+    mail: bowser.and.friends@hotmail.com
+    password: theOnlyOne
+    hashword: aebf1c050a82b52a861d6a5cca688e98
+    website: www.youtube.com
+- model: leakntest.entry
+  pk: 7
+  fields:
+    name: Bowser
+    mail: bowser.and.friends@hotmail.com
+    password: theOnlyOne
+    hashword: aebf1c050a82b52a861d6a5cca688e98
+    website: www.amazon.ca
+- model: leakntest.entry
+  pk: 8
+  fields:
+    name: YoshiTheStalker
+    mail: another_account.mario@hotmail.com
+    password: GoodLuck
+    hashword: 8051059bd5752d0a41c60c37f4288e8e
+    website: www.youtube.com
+- model: leakntest.entry
+  pk: 9
+  fields:
+    name: Princess-Peach
+    mail: princess.peach@gmail.com
+    password: Toadstool85
+    hashword: f27a6907c2f0cfddbd22cd66a85d27fd
+    website: www.linkedin.com
+- model: leakntest.entry
+  pk: 10
+  fields:
+    name: PPeach
+    mail: princess.peach@uqac.ca
+    password: 8Toad5stool_
+    hashword: e723a9f68dbf542d27752c5a7cdee812
+    website: www.uqac.ca
