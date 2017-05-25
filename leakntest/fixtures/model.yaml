@@ -1,0 +1,8 @@
+- model: Entry
+  pk: 1
+  fields:
+    name: mario
+    mail: mario@gmail.com
+    password: x_IamTheBest_x666
+    hashword: de2f15d014d40b93578d255e6221fd60
+    website: www.facebook.com
