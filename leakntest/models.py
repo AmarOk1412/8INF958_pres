@@ -17,10 +17,6 @@ class Entry(models.Model):
             self.website)
         return str_to_return
 
-    def get_all():
-        entry = Entry.objects.all()
-        return entry
-
     def get_all_by_entry(self, entry):
         query = list()
         name = self.get_all_by_name(entry)
@@ -28,7 +24,6 @@ class Entry(models.Model):
         password = self.get_all_by_password(entry)
         hashword = self.get_all_by_hashword(entry)
         website = self.get_all_by_website(entry)
-        print(name)
         if name.count() > 0:
             query += list(name)
         if mail.count() > 0:
