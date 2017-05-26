@@ -53,7 +53,8 @@ class BasicTest(TestCase):
         entry = Entry()
         assertion = list() + list(
             Entry.objects.all().filter(name='Princess-Peach'))
-        self.assertEqual(entry.get_all_by_entry('Princess-Peach'), assertion)
+        self.assertEqual(entry.get_all_by_entry('Princess-Peach')['names'],
+                         assertion)
         self.assertTrue(len(entry.get_all_by_entry('mario')) > 0)
 
     def test_search_by_name(self):
@@ -123,17 +124,20 @@ class BasicTest(TestCase):
         '''
         entry = Entry()
         self.assertEqual(
-            len(entry.get_all_by_entry('donkey@kong.com')), 5)
+            entry.get_all_by_name('donkey@kong.com').count(),
+            len(entry.get_all_by_entry('donkey@kong.com')['names']))
         self.assertEqual(
-            entry.get_all_by_name('donkey@kong.com').count(), 1)
+            entry.get_all_by_mail('donkey@kong.com').count(),
+            len(entry.get_all_by_entry('donkey@kong.com')['mails']))
         self.assertEqual(
-            entry.get_all_by_mail('donkey@kong.com').count(), 1)
+            entry.get_all_by_password('donkey@kong.com').count(),
+            len(entry.get_all_by_entry('donkey@kong.com')['passwords']))
         self.assertEqual(
-            entry.get_all_by_password('donkey@kong.com').count(), 1)
+            entry.get_all_by_hashword('donkey@kong.com').count(),
+            len(entry.get_all_by_entry('donkey@kong.com')['hashwords']))
         self.assertEqual(
-            entry.get_all_by_hashword('donkey@kong.com').count(), 1)
-        self.assertEqual(
-            entry.get_all_by_website('donkey@kong.com').count(), 1)
+            entry.get_all_by_website('donkey@kong.com').count(),
+            len(entry.get_all_by_entry('donkey@kong.com')['websites']))
 
     def test_bad_search(self):
         '''

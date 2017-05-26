@@ -13,7 +13,6 @@ def home(request):
             entry = form.cleaned_data['entry']
             new_entry = Entry()
             query = new_entry.get_all_by_entry(entry)
-            print(query)
             return search(request, query)
 
     else:  # On est dans une requete GET

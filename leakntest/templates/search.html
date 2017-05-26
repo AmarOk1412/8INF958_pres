@@ -2,19 +2,19 @@
 
 <link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}" />
 
-<p>Recherche de {{entry}} : </p>
+<p>Recherche de {{entry.query}} : </p>
 
+{%if entry.names %}
+<h2>Results for {{entry.query}} as Name:</h2>
 <table>
     <tr>
-        <th>Name</th>
         <th>Mail</th>
         <th>Password</th>
         <th>Hashword</th>
         <th>Website</th>
     </tr>
-    {% for item in entry %}
+    {% for item in entry.names %}
     <tr>
-        <td>{{ item.name }}</td>
         <td>{{ item.mail }}</td>
         <td>{{ item.password }}</td>
         <td>{{ item.hashword }}</td>
@@ -22,3 +22,85 @@
     </tr>
     {% endfor %}
 </table>
+{% endif %}
+
+{%if entry.mails %}
+<h2>Results for {{entry.query}} as Mail:</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Password</th>
+        <th>Hashword</th>
+        <th>Website</th>
+    </tr>
+    {% for item in entry.mails %}
+    <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.password }}</td>
+        <td>{{ item.hashword }}</td>
+        <td>{{ item.website }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+{%if entry.passwords %}
+<h2>Results for {{entry.query}} as Password:</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Mail</th>
+        <th>Hashword</th>
+        <th>Website</th>
+    </tr>
+    {% for item in entry.passwords %}
+    <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.mail }}</td>
+        <td>{{ item.hashword }}</td>
+        <td>{{ item.website }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+
+{%if entry.hashwords %}
+<h2>Results for {{entry.query}} as Hash:</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Mail</th>
+        <th>Password</th>
+        <th>Website</th>
+    </tr>
+    {% for item in entry.hashwords %}
+    <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.mail }}</td>
+        <td>{{ item.password }}</td>
+        <td>{{ item.website }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
+
+{%if entry.websites %}
+<h2>Results for {{entry.query}} as Website:</h2>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Mail</th>
+        <th>Password</th>
+        <th>Hashword</th>
+    </tr>
+    {% for item in entry.websites %}
+    <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.mail }}</td>
+        <td>{{ item.hashword }}</td>
+        <td>{{ item.website }}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endif %}
