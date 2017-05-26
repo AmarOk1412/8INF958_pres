@@ -42,7 +42,7 @@ class BasicTest(TestCase):
         new_entry = Entry()
 
         self.assertContains(response, 'mario')
-        # self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.status_code, 200)
         self.assertEquals(response.context['entry'],
                           new_entry.get_all_by_entry('mario'))
 
