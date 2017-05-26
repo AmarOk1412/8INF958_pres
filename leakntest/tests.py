@@ -123,6 +123,10 @@ class BasicTest(TestCase):
         d'Entry
         '''
         entry = Entry()
+        self.assertEqual(str(entry.get_all_by_entry('donkey@kong.com')
+                             ['names'][0]),
+                         'donkey@kong.com donkey@kong.com donkey@kong.com ' +
+                         'donkey@kong.com donkey@kong.com')
         self.assertEqual(
             entry.get_all_by_name('donkey@kong.com').count(),
             len(entry.get_all_by_entry('donkey@kong.com')['names']))
