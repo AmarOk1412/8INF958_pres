@@ -1,0 +1,8 @@
+<h1>Bienvenue sur LeakNTest ! </h1>
+<p>Veuillez entrer un identificateur ci-dessous pour utiliser notre service ! </p>
+<form action="{% url 'home' %}" method="post" >
+  Identificateur:
+  {% csrf_token %}
+  {{form}}
+  <input type="submit" value="Rechercher">
+</form>

@@ -9,3 +9,9 @@ run:
 
 test:
 	python manage.py test
+
+fixtures:
+	python manage.py loaddata leakntest/fixtures/*.yaml
+
+lint:
+	flake8 ./leakntest/*
