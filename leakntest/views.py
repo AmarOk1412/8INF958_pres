@@ -4,7 +4,6 @@ from leakntest.forms import EntryForm
 from leakntest.models import Entry
 
 
-# Create your views here.
 def home(request):
     if request.method == 'POST':
         form = EntryForm(request.POST)

@@ -1,7 +1,6 @@
 from django.db import models
 
 
-# Create your models here.
 class Entry(models.Model):
     name = models.CharField(max_length=100)
     mail = models.CharField(max_length=100)
@@ -19,7 +18,6 @@ class Entry(models.Model):
         return str_to_return
 
     def get_all():
-        """ get all datas from the Entry table """
         entry = Entry.objects.all()
         return entry
 
@@ -30,6 +28,7 @@ class Entry(models.Model):
         password = self.get_all_by_password(entry)
         hashword = self.get_all_by_hashword(entry)
         website = self.get_all_by_website(entry)
+        print(name)
         if name.count() > 0:
             query += list(name)
         if mail.count() > 0:
