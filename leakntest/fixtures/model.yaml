@@ -78,3 +78,11 @@
     password: 8Toad5stool_
     hashword: e723a9f68dbf542d27752c5a7cdee812
     website: www.uqac.ca
+- model: leakntest.entry
+  pk: 11
+  fields:
+    name: donkey@kong.com
+    mail: donkey@kong.com
+    password: donkey@kong.com
+    hashword: donkey@kong.com
+    website: donkey@kong.com
