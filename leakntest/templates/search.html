@@ -1,1 +1,24 @@
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}" />
+
 <p>Recherche de {{entry}} : </p>
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Mail</th>
+        <th>Password</th>
+        <th>Hashword</th>
+        <th>Website</th>
+    </tr>
+    {% for item in entry %}
+    <tr>
+        <td>{{ item.name }}</td>
+        <td>{{ item.mail }}</td>
+        <td>{{ item.password }}</td>
+        <td>{{ item.hashword }}</td>
+        <td>{{ item.website }}</td>
+    </tr>
+    {% endfor %}
+</table>
