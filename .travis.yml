@@ -8,5 +8,5 @@ install:
 before_script:
   - flake8 ./leakntest/*
 script:
-  - coverage run --source='.' manage.py test
+  - coverage run --source=leakntest manage.py test
 after_success: coveralls

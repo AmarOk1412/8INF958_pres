@@ -116,7 +116,26 @@ class BasicTest(TestCase):
         self.assertEqual(
             entry.get_all_by_website('www.facebook.com').count(), 2)
 
-    def test_bad_search_(self):
+    def test_search_by_similarities(self):
+        '''
+        Vérifie si la méthode get_all_* récupère correctement le bon nombre
+        d'Entry
+        '''
+        entry = Entry()
+        self.assertEqual(
+            len(entry.get_all_by_entry('donkey@kong.com')), 5)
+        self.assertEqual(
+            entry.get_all_by_name('donkey@kong.com').count(), 1)
+        self.assertEqual(
+            entry.get_all_by_mail('donkey@kong.com').count(), 1)
+        self.assertEqual(
+            entry.get_all_by_password('donkey@kong.com').count(), 1)
+        self.assertEqual(
+            entry.get_all_by_hashword('donkey@kong.com').count(), 1)
+        self.assertEqual(
+            entry.get_all_by_website('donkey@kong.com').count(), 1)
+
+    def test_bad_search(self):
         '''
         Vérifie si la méthode get_all_by_website()
         de la classe Entry renvoie le bon query set
