@@ -1,8 +1,22 @@
-<h1>Bienvenue sur LeakNTest ! </h1>
-<p>Veuillez entrer un identificateur ci-dessous pour utiliser notre service ! </p>
-<form action="{% url 'home' %}" method="post" >
-  Identificateur:
-  {% csrf_token %}
-  {{form}}
-  <input type="submit" value="Rechercher">
-</form>
+{% load static %}
+
+<link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}" />
+
+<section id="header">
+	<div class="inner">
+		<span class="icon major fa-cloud"></span>
+		<p><strong>Leaks'n'Tests</strong>, another leaks finder<br />
+		Check if you have an account that has been compromised in a data breach.</p>
+    <form action="{% url 'home' %}" method="post" >
+      {% csrf_token %}
+      {{form}}
+      <input type="submit" value="Rechercher">
+    </form>
+	</div>
+</section>
+
+
+		<!-- Footer -->
+<section id="footer">
+		Base Design: <a href="http://html5up.net">HTML5 UP</a> - Demo for 8INF958 - <a href="https://github.com/AmarOk1412/8INF958_pres/">GitHub</a>
+</section>
