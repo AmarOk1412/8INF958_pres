@@ -1,4 +1,6 @@
 language: python
+addons:
+  firefox: "53.0.2"
 python:
   - "3.5"
 install:
@@ -9,6 +11,10 @@ install:
   - pip install coveralls
 before_script:
   - flake8 ./leakntest/*
+  - wget https://github.com/mozilla/geckodriver/releases/download/v0.16.1/geckodriver-v0.16.1-linux64.tar.gz
+  - mkdir geckodriver
+  - tar -xzf geckodriver-v0.16.1-linux64.tar.gz -C geckodriver
+  - export PATH=$PATH:$PWD/geckodriver
 script:
   - coverage run --source=leakntest manage.py test
 after_success: coveralls
