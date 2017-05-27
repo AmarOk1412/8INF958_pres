@@ -18,22 +18,22 @@ class Entry(models.Model):
         return str_to_return
 
     def get_all_by_entry(self, entry):
-        query = list()
+        query = {'query': entry}
         name = self.get_all_by_name(entry)
         mail = self.get_all_by_mail(entry)
         password = self.get_all_by_password(entry)
         hashword = self.get_all_by_hashword(entry)
         website = self.get_all_by_website(entry)
         if name.count() > 0:
-            query += list(name)
+            query['names'] = list(name)
         if mail.count() > 0:
-            query += list(mail)
+            query['mails'] = list(mail)
         if password.count() > 0:
-            query += list(password)
+            query['passwords'] = list(password)
         if hashword.count() > 0:
-            query += list(hashword)
+            query['hashwords'] = list(hashword)
         if website.count() > 0:
-            query += list(website)
+            query['websites'] = list(website)
         return query
 
     def get_all_by_name(self, entry):
