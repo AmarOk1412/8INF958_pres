@@ -1,11 +1,13 @@
 {% load static %}
 
-<link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'css/search.css' %}" />
 
-<p>Recherche de {{entry.query}} : </p>
+<h1>Results for: {{entry.query}}</h1>
 
+<div id="results">
 {%if entry.names %}
-<h2>Results for {{entry.query}} as Name:</h2>
+<h2>As Name:</h2>
 <table>
     <tr>
         <th>Mail</th>
@@ -25,7 +27,7 @@
 {% endif %}
 
 {%if entry.mails %}
-<h2>Results for {{entry.query}} as Mail:</h2>
+<h2>As Mail:</h2>
 <table>
     <tr>
         <th>Name</th>
@@ -45,7 +47,7 @@
 {% endif %}
 
 {%if entry.passwords %}
-<h2>Results for {{entry.query}} as Password:</h2>
+<h2>As Password:</h2>
 <table>
     <tr>
         <th>Name</th>
@@ -66,7 +68,7 @@
 
 
 {%if entry.hashwords %}
-<h2>Results for {{entry.query}} as Hash:</h2>
+<h2>As Hash:</h2>
 <table>
     <tr>
         <th>Name</th>
@@ -86,7 +88,7 @@
 {% endif %}
 
 {%if entry.websites %}
-<h2>Results for {{entry.query}} as Website:</h2>
+<h2>As Website:</h2>
 <table>
     <tr>
         <th>Name</th>
@@ -104,3 +106,5 @@
     {% endfor %}
 </table>
 {% endif %}
+
+</div>
