@@ -2,7 +2,9 @@ language: python
 python:
   - "3.5"
 install:
-  - pip install django pyyaml
+  - pip install django
+  - pip install pyyaml
+  - pip install selenium
   - pip install flake8
   - pip install coveralls
 before_script:
