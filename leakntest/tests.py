@@ -197,12 +197,9 @@ class MySeleniumTests(StaticLiveServerTestCase):
         driver.find_element_by_id('id_entry').clear()
         driver.find_element_by_id('id_entry').send_keys('noresult')
         driver.find_element_by_css_selector('input[type=\"submit\"]').click()
-        try:
-            time.sleep(1)  # Wait for result
-            self.assertEqual('No result found...',
-                             driver.find_element_by_css_selector('p').text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
+        time.sleep(1)  # Wait for result
+        self.assertEqual('No result found...',
+                         driver.find_element_by_css_selector('p').text)
 
     def test_search_mario(self):
         driver = self.selenium
@@ -210,62 +207,32 @@ class MySeleniumTests(StaticLiveServerTestCase):
         driver.find_element_by_id('id_entry').clear()
         driver.find_element_by_id('id_entry').send_keys('mario')
         driver.find_element_by_css_selector('input[type=\"submit\"]').click()
-        try:
-            self.assertEqual('Results for: mario',
-                             driver.find_element_by_css_selector('h1').text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            self.assertEqual('As Name:',
-                             driver.find_element_by_css_selector('h2').text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            self.assertEqual('Mail',
-                             driver.find_element_by_css_selector('th').text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            content = '//div[@id=\"results\"]/table/tbody/tr/th[2]'
-            self.assertEqual('Password',
-                             driver.find_element_by_xpath(content).text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            content = '//div[@id=\"results\"]/table/tbody/tr/th[3]'
-            self.assertEqual('Hashword',
-                             driver.find_element_by_xpath(content).text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            content = '//div[@id=\"results\"]/table/tbody/tr/th[4]'
-            self.assertEqual('Website',
-                             driver.find_element_by_xpath(content).text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            self.assertEqual('mario@gmail.com',
-                             driver.find_element_by_css_selector('td').text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            content = '//div[@id=\"results\"]/table/tbody/tr[2]/td[2]'
-            self.assertEqual('x_IamTheBest_x666',
-                             driver.find_element_by_xpath(content).text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            content = '//div[@id=\"results\"]/table/tbody/tr[2]/td[3]'
-            self.assertEqual('de2f15d014d40b93578d255e6221fd60',
-                             driver.find_element_by_xpath(content).text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            content = '//div[@id=\"results\"]/table/tbody/tr[2]/td[4]'
-            self.assertEqual('www.facebook.com',
-                             driver.find_element_by_xpath(content).text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
+        self.assertEqual('Results for: mario',
+                         driver.find_element_by_css_selector('h1').text)
+        self.assertEqual('As Name:',
+                         driver.find_element_by_css_selector('h2').text)
+        self.assertEqual('Mail',
+                         driver.find_element_by_css_selector('th').text)
+        content = '//div[@id=\"results\"]/table/tbody/tr/th[2]'
+        self.assertEqual('Password',
+                         driver.find_element_by_xpath(content).text)
+        content = '//div[@id=\"results\"]/table/tbody/tr/th[3]'
+        self.assertEqual('Hashword',
+                         driver.find_element_by_xpath(content).text)
+        content = '//div[@id=\"results\"]/table/tbody/tr/th[4]'
+        self.assertEqual('Website',
+                         driver.find_element_by_xpath(content).text)
+        self.assertEqual('mario@gmail.com',
+                         driver.find_element_by_css_selector('td').text)
+        content = '//div[@id=\"results\"]/table/tbody/tr[2]/td[2]'
+        self.assertEqual('x_IamTheBest_x666',
+                         driver.find_element_by_xpath(content).text)
+        content = '//div[@id=\"results\"]/table/tbody/tr[2]/td[3]'
+        self.assertEqual('de2f15d014d40b93578d255e6221fd60',
+                         driver.find_element_by_xpath(content).text)
+        content = '//div[@id=\"results\"]/table/tbody/tr[2]/td[4]'
+        self.assertEqual('www.facebook.com',
+                         driver.find_element_by_xpath(content).text)
 
     def test_search_donkey(self):
         driver = self.selenium
@@ -273,86 +240,44 @@ class MySeleniumTests(StaticLiveServerTestCase):
         driver.find_element_by_id('id_entry').clear()
         driver.find_element_by_id('id_entry').send_keys('donkey@kong.com')
         driver.find_element_by_css_selector('input[type=\"submit\"]').click()
-        try:
-            self.assertEqual('Results for: donkey@kong.com',
-                             driver.find_element_by_css_selector('h1').text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            self.assertEqual('As Name:',
-                             driver.find_element_by_css_selector('h2').text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            self.assertEqual('Mail',
-                             driver.find_element_by_css_selector('th').text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            self.assertEqual('donkey@kong.com',
-                             driver.find_element_by_css_selector('td').text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            content = '//div[@id=\"results\"]/table/tbody/tr/th[2]'
-            self.assertEqual('Password',
-                             driver.find_element_by_xpath(content).text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            content = '//div[@id=\"results\"]/table/tbody/tr[2]/td[2]'
-            self.assertEqual('donkey@kong.com',
-                             driver.find_element_by_xpath(content).text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            content = '//div[@id=\"results\"]/table/tbody/tr/th[3]'
-            self.assertEqual('Hashword',
-                             driver.find_element_by_xpath(content).text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            content = '//div[@id=\"results\"]/table/tbody/tr[2]/td[3]'
-            self.assertEqual('donkey@kong.com',
-                             driver.find_element_by_xpath(content).text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            content = '//div[@id=\"results\"]/table/tbody/tr/th[4]'
-            self.assertEqual('Website',
-                             driver.find_element_by_xpath(content).text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            content = '//div[@id=\"results\"]/table/tbody/tr[2]/td[4]'
-            self.assertEqual('donkey@kong.com',
-                             driver.find_element_by_xpath(content).text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            content = '//div[@id=\"results\"]/h2[2]'
-            self.assertEqual('As Mail:',
-                             driver.find_element_by_xpath(content).text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            content = '//div[@id=\"results\"]/h2[3]'
-            self.assertEqual('As Password:',
-                             driver.find_element_by_xpath(content).text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            content = '//div[@id=\"results\"]/h2[4]'
-            self.assertEqual('As Hash:',
-                             driver.find_element_by_xpath(content).text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            content = '//div[@id=\"results\"]/h2[5]'
-            self.assertEqual('As Website:',
-                             driver.find_element_by_xpath(content).text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
+        self.assertEqual('Results for: donkey@kong.com',
+                         driver.find_element_by_css_selector('h1').text)
+        self.assertEqual('As Name:',
+                         driver.find_element_by_css_selector('h2').text)
+        self.assertEqual('Mail',
+                         driver.find_element_by_css_selector('th').text)
+        self.assertEqual('donkey@kong.com',
+                         driver.find_element_by_css_selector('td').text)
+        content = '//div[@id=\"results\"]/table/tbody/tr/th[2]'
+        self.assertEqual('Password',
+                         driver.find_element_by_xpath(content).text)
+        content = '//div[@id=\"results\"]/table/tbody/tr[2]/td[2]'
+        self.assertEqual('donkey@kong.com',
+                         driver.find_element_by_xpath(content).text)
+        content = '//div[@id=\"results\"]/table/tbody/tr/th[3]'
+        self.assertEqual('Hashword',
+                         driver.find_element_by_xpath(content).text)
+        content = '//div[@id=\"results\"]/table/tbody/tr[2]/td[3]'
+        self.assertEqual('donkey@kong.com',
+                         driver.find_element_by_xpath(content).text)
+        content = '//div[@id=\"results\"]/table/tbody/tr/th[4]'
+        self.assertEqual('Website',
+                         driver.find_element_by_xpath(content).text)
+        content = '//div[@id=\"results\"]/table/tbody/tr[2]/td[4]'
+        self.assertEqual('donkey@kong.com',
+                         driver.find_element_by_xpath(content).text)
+        content = '//div[@id=\"results\"]/h2[2]'
+        self.assertEqual('As Mail:',
+                         driver.find_element_by_xpath(content).text)
+        content = '//div[@id=\"results\"]/h2[3]'
+        self.assertEqual('As Password:',
+                         driver.find_element_by_xpath(content).text)
+        content = '//div[@id=\"results\"]/h2[4]'
+        self.assertEqual('As Hash:',
+                         driver.find_element_by_xpath(content).text)
+        content = '//div[@id=\"results\"]/h2[5]'
+        self.assertEqual('As Website:',
+                         driver.find_element_by_xpath(content).text)
 
     def test_no_checkbox(self):
         driver = self.selenium
@@ -365,11 +290,8 @@ class MySeleniumTests(StaticLiveServerTestCase):
         driver.find_element_by_id('id_search_hashword').click()
         driver.find_element_by_id('id_search_website').click()
         driver.find_element_by_css_selector('input[type=\"submit\"]').click()
-        try:
-            self.assertEqual('No result found...',
-                             driver.find_element_by_css_selector('p').text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
+        self.assertEqual('No result found...',
+                         driver.find_element_by_css_selector('p').text)
 
     def test_3_checkboxes(self):
         driver = self.selenium
@@ -379,23 +301,14 @@ class MySeleniumTests(StaticLiveServerTestCase):
         driver.find_element_by_id('id_search_mail').click()
         driver.find_element_by_id('id_search_hashword').click()
         driver.find_element_by_css_selector('input[type=\"submit\"]').click()
-        try:
-            self.assertEqual('As Name:',
-                             driver.find_element_by_css_selector('h2').text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            content = '//div[@id="results"]/h2[2]'
-            self.assertEqual('As Password:',
-                             driver.find_element_by_xpath(content).text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            content = '//div[@id="results"]/h2[3]'
-            self.assertEqual('As Website:',
-                             driver.find_element_by_xpath(content).text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
+        self.assertEqual('As Name:',
+                         driver.find_element_by_css_selector('h2').text)
+        content = '//div[@id="results"]/h2[2]'
+        self.assertEqual('As Password:',
+                         driver.find_element_by_xpath(content).text)
+        content = '//div[@id="results"]/h2[3]'
+        self.assertEqual('As Website:',
+                         driver.find_element_by_xpath(content).text)
 
     def test_2_checkboxes(self):
         driver = self.selenium
@@ -406,14 +319,8 @@ class MySeleniumTests(StaticLiveServerTestCase):
         driver.find_element_by_id('id_search_password').click()
         driver.find_element_by_id('id_search_website').click()
         driver.find_element_by_css_selector('input[type=\"submit\"]').click()
-        try:
-            self.assertEqual('As Mail:',
-                             driver.find_element_by_css_selector('h2').text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
-        try:
-            content = '//div[@id="results"]/h2[2]'
-            self.assertEqual('As Hash:',
-                             driver.find_element_by_xpath(content).text)
-        except AssertionError as e:
-            self.verificationErrors.append(str(e))
+        self.assertEqual('As Mail:',
+                         driver.find_element_by_css_selector('h2').text)
+        content = '//div[@id="results"]/h2[2]'
+        self.assertEqual('As Hash:',
+                         driver.find_element_by_xpath(content).text)
