@@ -17,23 +17,28 @@ class Entry(models.Model):
             self.website)
         return str_to_return
 
-    def get_all_by_entry(self, entry):
+    def get_all_by_entry(self, entry, filters):
         query = {'query': entry}
-        name = self.get_all_by_name(entry)
-        mail = self.get_all_by_mail(entry)
-        password = self.get_all_by_password(entry)
-        hashword = self.get_all_by_hashword(entry)
-        website = self.get_all_by_website(entry)
-        if name.count() > 0:
-            query['names'] = list(name)
-        if mail.count() > 0:
-            query['mails'] = list(mail)
-        if password.count() > 0:
-            query['passwords'] = list(password)
-        if hashword.count() > 0:
-            query['hashwords'] = list(hashword)
-        if website.count() > 0:
-            query['websites'] = list(website)
+        if 'search_name' in filters:
+            name = self.get_all_by_name(entry)
+            if name.count() > 0:
+                query['names'] = list(name)
+        if 'search_mail' in filters:
+            mail = self.get_all_by_mail(entry)
+            if mail.count() > 0:
+                query['mails'] = list(mail)
+        if 'search_password' in filters:
+            password = self.get_all_by_password(entry)
+            if password.count() > 0:
+                query['passwords'] = list(password)
+        if 'search_hashword' in filters:
+            hashword = self.get_all_by_hashword(entry)
+            if hashword.count() > 0:
+                query['hashwords'] = list(hashword)
+        if 'search_website' in filters:
+            website = self.get_all_by_website(entry)
+            if website.count() > 0:
+                query['websites'] = list(website)
         return query
 
     def get_all_by_name(self, entry):

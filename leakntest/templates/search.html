@@ -107,4 +107,8 @@
 </table>
 {% endif %}
 
+{%if not entry.names and not entry.mails and not entry.passwords and not entry.hashwords and not entry.websites %}
+<p>No result found...</p>
+{% endif %}
+
 </div>
