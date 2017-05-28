@@ -207,6 +207,7 @@ class MySeleniumTests(StaticLiveServerTestCase):
         driver.find_element_by_id('id_entry').clear()
         driver.find_element_by_id('id_entry').send_keys('mario')
         driver.find_element_by_css_selector('input[type=\"submit\"]').click()
+        time.sleep(1)  # Wait for result
         self.assertEqual('Results for: mario',
                          driver.find_element_by_css_selector('h1').text)
         self.assertEqual('As Name:',
@@ -240,6 +241,7 @@ class MySeleniumTests(StaticLiveServerTestCase):
         driver.find_element_by_id('id_entry').clear()
         driver.find_element_by_id('id_entry').send_keys('donkey@kong.com')
         driver.find_element_by_css_selector('input[type=\"submit\"]').click()
+        time.sleep(1)  # Wait for result
         self.assertEqual('Results for: donkey@kong.com',
                          driver.find_element_by_css_selector('h1').text)
         self.assertEqual('As Name:',
@@ -290,6 +292,7 @@ class MySeleniumTests(StaticLiveServerTestCase):
         driver.find_element_by_id('id_search_hashword').click()
         driver.find_element_by_id('id_search_website').click()
         driver.find_element_by_css_selector('input[type=\"submit\"]').click()
+        time.sleep(1)  # Wait for result
         self.assertEqual('No result found...',
                          driver.find_element_by_css_selector('p').text)
 
@@ -301,6 +304,7 @@ class MySeleniumTests(StaticLiveServerTestCase):
         driver.find_element_by_id('id_search_mail').click()
         driver.find_element_by_id('id_search_hashword').click()
         driver.find_element_by_css_selector('input[type=\"submit\"]').click()
+        time.sleep(1)  # Wait for result
         self.assertEqual('As Name:',
                          driver.find_element_by_css_selector('h2').text)
         content = '//div[@id="results"]/h2[2]'
@@ -319,6 +323,7 @@ class MySeleniumTests(StaticLiveServerTestCase):
         driver.find_element_by_id('id_search_password').click()
         driver.find_element_by_id('id_search_website').click()
         driver.find_element_by_css_selector('input[type=\"submit\"]').click()
+        time.sleep(1)  # Wait for result
         self.assertEqual('As Mail:',
                          driver.find_element_by_css_selector('h2').text)
         content = '//div[@id="results"]/h2[2]'
