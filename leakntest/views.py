@@ -12,7 +12,18 @@ def home(request):
             # On envoie la requete vers la page 'search'
             entry = form.cleaned_data['entry']
             new_entry = Entry()
-            query = new_entry.get_all_by_entry(entry)
+            filters = []
+            if form.cleaned_data['search_name']:
+                filters.append('search_name')
+            if form.cleaned_data['search_mail']:
+                filters.append('search_mail')
+            if form.cleaned_data['search_password']:
+                filters.append('search_password')
+            if form.cleaned_data['search_hashword']:
+                filters.append('search_hashword')
+            if form.cleaned_data['search_website']:
+                filters.append('search_website')
+            query = new_entry.get_all_by_entry(entry, filters)
             return search(request, query)
 
     else:  # On est dans une requete GET
