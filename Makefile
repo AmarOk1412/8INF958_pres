@@ -15,7 +15,7 @@ run:
 	python manage.py runserver 0.0.0.0:8000
 
 test:
-	python manage.py test
+	coverage run --source=leakntest manage.py test
 
 fixtures:
 	python manage.py loaddata leakntest/fixtures/*.yaml
