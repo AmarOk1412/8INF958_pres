@@ -152,7 +152,7 @@ class BasicTest(TestCase):
                                        self.filters)['passwords']))
         self.assertEqual(
             entry.get_all_by_hashword('donkey@kong.com').count(),
-            len(entry.get_all_by_entry('donkey@kong.com',
+            len(entry.get_all_by_entry('donkey2@kong.com',
                                        self.filters)['hashwords']))
         self.assertEqual(
             entry.get_all_by_website('donkey@kong.com').count(),
